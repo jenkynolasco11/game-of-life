@@ -1,0 +1,36 @@
+$size : 300px;
+$speed: 0.1s;
+
+body {
+  background : #4D4D50;
+}
+
+#board{
+  margin-top : $size/6;
+  display : flex;
+  justify-content : center ;
+  .board{
+    .row{
+      display : flex;
+      [class*=age]{
+        width : $size * 0.05;
+        height : $size * 0.05;
+        border : 1px solid gray;
+        transition : background $speed linear;
+      }
+      .age-0 {
+        background : black;
+      }
+      .age-1 {
+        background : yellow;
+      }  
+      .age-2 {
+        background : orange;
+      }  
+      .age-3 {
+        background : red;
+      }
+    }
+  }
+}
+
