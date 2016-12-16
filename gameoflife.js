@@ -21,12 +21,6 @@ class Board extends React.Component {
     
     return newCopy
   }
-  /* This one only copies one layer of array */
-//   deepCopy(arr){
-//     return arr.reduce((prev,cur)=>{
-//       return prev.concat([cur])
-//     }, [])
-//   }
   
   startGame(){
     // Testing purposes
@@ -57,14 +51,14 @@ class Board extends React.Component {
   }
   
   checkAdjacents(x,y){
-    let x2 = x == 0 ? 20 : x
-    let y2 = y == 0 ? 20 : y
     let limit = this.state.size
+    let x2 = x == 0 ? limit : x
+    let y2 = y == 0 ? limit : y
     let sum = 0
     let newX, newY, truthy
     
     for(let i = 0; i < 3; i++){
-      x2 = x == 0 ? 20 : x
+      x2 = x == 0 ? limit : x
       newY = (y2-1) % limit
       
       for(let j = 0; j < 3; j++){
@@ -172,7 +166,6 @@ class Board extends React.Component {
               <div 
                 key={ind1} 
                 className='row'
-                // onClick={this.toggleTile}
                 >
               {
                 arr.map( (el, ind2) => {
@@ -182,7 +175,6 @@ class Board extends React.Component {
                            toggle={this.toggleTile.bind(this)}
                            x={ind1}
                            y={ind2}
-                           // onClick={this.toggleTile}
                            />
                 })
               }
